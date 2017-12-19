@@ -25,7 +25,13 @@ int main(int argc, char **argv)
 	tf::StampedTransform transform;
 	try
 	{
+//		listener.waitForTransform("/turtle2", "/carrot1", ros::Time(0), ros::Duration(10.0) );
+//	    listener.lookupTransform("/turtle2", "/carrot1", ros::Time(0), transform);
+		listener.waitForTransform("/turtle2", "/turtle1", ros::Time(0), ros::Duration(10.0) );
 	    listener.lookupTransform("/turtle2", "/turtle1", ros::Time(0), transform);
+//		 ros::Time past = ros::Time::now() - ros::Duration(5.0);
+//	     listener.waitForTransform("/turtle2", "/turtle1", past, ros::Duration(10.0));
+//         listener.lookupTransform("/turtle2", "/turtle1", past, transform);
 	}
 	catch(tf::TransformException &ex)
 	{
